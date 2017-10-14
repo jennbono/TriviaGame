@@ -6,7 +6,7 @@ var incorrectAnswers = 0;
 var unansweredQuestions = 0;
 
 var questions = [{
-	question: "What was the 1988 Championship team named?",
+	question: "What was the 1988 Championship team nicknamed?",
 	choices: ["Danny and Co.", "The Miracles", "Danny and the Miracles", "Manning's Miracles"],
 	correctAnswer: 2
 }, {
@@ -37,9 +37,17 @@ var questions = [{
 	question: "How many consecutive regular season Big 12 titles have the Jayhawks won, tying them with UCLA?",
 	choices: ["14", "13", "12", "11"],
 	correctAnswer: 1
+}, {
+	question: "Who was the coach in the only season Kansas went undefeated in Big 12 play?",
+	choices: ["Larry Brown", "Ted Owens", "Bill Self", "Roy Williams"],
+	correctAnswer: 3
+}, {
+	question: "Who did the Jayhawks defeat to claim their 2,000th victory in program history?",
+	choices: ["Texas Tech", "Texas", "Texas A&M", "TCU"],
+	correctAnswer: 0
 }];
 
-var StartGame = $('<button type="button" class="btn btn-primary btn-lg btn-color start-game">Start Game</button>')
+var StartGame = $('<button type="button" class="btn btn-primary btn-lg start-game">Start Game</button>')
 
 $(".game").append(StartGame);
 

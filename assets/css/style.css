@@ -10,6 +10,7 @@ body {
 .btn-color {
 	background-color: #006ab5;
 	font-family: 'Heebo', sans-serif;
+	border-color: #006ab5;
 }
 
 .choice {
