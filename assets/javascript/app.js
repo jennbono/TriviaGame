@@ -4,6 +4,8 @@ var timer;
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 var unansweredQuestions = 0;
+var CurrentImage = 0;
+
 
 var questions = [{
 	question: "What was the 1988 Championship team nicknamed?",
@@ -47,6 +49,17 @@ var questions = [{
 	correctAnswer: 0
 }];
 
+var images = ["assets/images/danny-miracles.png",
+			  "assets/images/allen-fieldhouse.png",
+			  "assets/images/naismith.png",
+			  "assets/images/wilt.png",
+			  "assets/images/2008-champ.png",
+			  "assets/images/jojo-white.png",
+			  "assets/images/trob.png",
+			  "assets/images/thirteen.png",
+			  "assets/images/williams.png",
+			  "assets/images/2000-wins.png"];
+
 var StartGame = $('<button type="button" class="btn btn-primary btn-lg start-game">Start Game</button>')
 
 $(".game").append(StartGame);
@@ -64,7 +77,7 @@ function displayQuestion (index) {
 
 function displayAnswer (index,button) {
 	$(".game").empty();
-	var answerHeader = $('<h2></h2>');
+	var answerHeader = $('<h1></h1>');
 		if ($(button).attr("id") === "choice" + questions[index].correctAnswer) {
 			answerHeader.html("Correct!");
 		}
@@ -77,12 +90,16 @@ function displayAnswer (index,button) {
 
 $(document).on('click', ".choice" , function() {
 	displayAnswer(currentQuestion,this);
+
 });
 
 //create onclick event for start button
 $(".start-game").click(function() {
 	displayQuestion(currentQuestion);
 })
+
+
+
 
 //have one question come up at a time
 //have 20 second timer running
