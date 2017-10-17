@@ -12,52 +12,63 @@ var questions = [{
 	question: "What was the 1988 Championship team nicknamed?",
 	choices: ["Danny and Co.", "The Miracles", "Danny and the Miracles", "Manning's Miracles"],
 	correctAnswer: 2,
-	image: "assets/images/danny-miracles.png"
+	image: "assets/images/danny-miracles.png",
+	answer: "Danny and the Miracles"
 }, {
 	question: "What year did Allen Fieldhouse open?",
 	choices: ["1954", "1955", "1956", "1957"],
 	correctAnswer: 1,
-	image: "assets/images/allen-fieldhouse.png"
+	image: "assets/images/allen-fieldhouse.png",
+	answer: "1955"
 }, {
 	question: "Which head coach is the only coach with a losing record?",
 	choices: ["James Naismith", "Ted Owens", "Phog Allen", "Dick Harp"],
 	correctAnswer: 0,
-	image: "assets/images/naismith.png"
+	image: "assets/images/naismith.png",
+	answer: "James Naismith"
 }, {
 	question: "Which nickname did Wilt Chamberlain prefer?",
 	choices: ["Wilt the Stilt", "Goliath", "Ursa Major", "Big Dipper"],
 	correctAnswer: 3,
-	image: "assets/images/wilt.png"
+	image: "assets/images/wilt.png",
+	answer: "Big Dipper"
 }, {
 	question: "What was the final score of the 2008 National Championship game?",
 	choices: ["70-65", "70-65 OT", "75-68", "75-68 OT"],
 	correctAnswer: 3,
-	image: "assets/images/2008-champ.png"
+	image: "assets/images/2008-champ.png",
+	answer: "75-68 OT"
 }, {
 	question: "In 1966, who was called for stepping on the sidelines during a would-be game winning shot versus Texas Western?",
 	choices: ["Walt Wesley", "Al Lopes", "Jo Jo White", "Ron Franz"],
 	correctAnswer: 2,
-	image: "assets/images/jojo-white.png"
+	image: "assets/images/jojo-white.png",
+	answer: "Jo Jo White"
 }, {
 	question: "In the final Border War at Allen Fieldhouse, who blocked Phil Pressey's shot to send the game into overtime?",
 	choices: ["Thomas Robinson", "Jamari Taylor", "Kevin Young", "Jeff Withey"],
 	correctAnswer: 0,
-	image: "assets/images/trob.png"
+	image: "assets/images/trob.png",
+	answer: "Thomas Robinson"
 }, {
 	question: "How many consecutive regular season Big 12 titles have the Jayhawks won, tying them with UCLA?",
 	choices: ["14", "13", "12", "11"],
 	correctAnswer: 1,
-	image: "assets/images/thirteen.png"
+	image: "assets/images/thirteen.png",
+	answer: "13"
 }, {
 	question: "Who was the coach in the only season Kansas went undefeated in Big 12 play?",
 	choices: ["Larry Brown", "Ted Owens", "Bill Self", "Roy Williams"],
 	correctAnswer: 3,
-	image: "assets/images/williams.png"
+	image: "assets/images/williams.png",
+	answer: "Roy Williams"
+
 }, {
 	question: "Who did the Jayhawks defeat to claim their 2,000th victory in program history?",
 	choices: ["Texas Tech", "Texas", "Texas A&M", "TCU"],
 	correctAnswer: 0,
-	image: "assets/images/2000-win.png"
+	image: "assets/images/2000-win.png",
+	answer: "Texas Tech"
 }];
 
 var StartGame = $('<button type="button" class="btn btn-primary btn-lg start-game">Start Game</button>')
@@ -108,10 +119,12 @@ function displayAnswer (index,button) {
 			incorrectAnswers++;
 		}
 	$(".game").append(answerHeader);
+	answerAnswer = $('<div id="answers">' + questions[index].answer + '</div>');
+	$(".game").append(answerAnswer);
 	var answerImage = $('<img class="images" src="'+ questions[index].image +'">'); 
 	$(".game").append(answerImage);
 	currentQuestion = currentQuestion + 1;
-	timer = setTimeout(function(){ displayQuestion(currentQuestion); }, 5000);
+	timer = setTimeout(function(){ displayQuestion(currentQuestion); }, 7000);
 }
 
 

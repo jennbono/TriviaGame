@@ -46,3 +46,9 @@ h1 {
 .images {
 	width: 500px;
 }
+
+#answers {
+	font-family: 'Passion One', cursive;
+	font-size: 35px;
+	color: #e51937;
+}
