@@ -1,5 +1,4 @@
 var currentQuestion = 0;
-var gameState = 0; //0=displaying question 1=displaying answer
 var timer;
 var timerUpdate;
 var secondsRemaining = 20;
@@ -27,43 +26,39 @@ var questions = [{
 }, {
 	question: "Which nickname did Wilt Chamberlain prefer?",
 	choices: ["Wilt the Stilt", "Goliath", "Ursa Major", "Big Dipper"],
-	correctAnswer: 3
+	correctAnswer: 3,
+	image: "assets/images/wilt.png"
 }, {
 	question: "What was the final score of the 2008 National Championship game?",
 	choices: ["70-65", "70-65 OT", "75-68", "75-68 OT"],
-	correctAnswer: 3
+	correctAnswer: 3,
+	image: "assets/images/2008-champ.png"
 }, {
 	question: "In 1966, who was called for stepping on the sidelines during a would-be game winning shot versus Texas Western?",
 	choices: ["Walt Wesley", "Al Lopes", "Jo Jo White", "Ron Franz"],
-	correctAnswer: 2
+	correctAnswer: 2,
+	image: "assets/images/jojo-white.png"
 }, {
 	question: "In the final Border War at Allen Fieldhouse, who blocked Phil Pressey's shot to send the game into overtime?",
 	choices: ["Thomas Robinson", "Jamari Taylor", "Kevin Young", "Jeff Withey"],
-	correctAnswer: 0
+	correctAnswer: 0,
+	image: "assets/images/trob.png"
 }, {
 	question: "How many consecutive regular season Big 12 titles have the Jayhawks won, tying them with UCLA?",
 	choices: ["14", "13", "12", "11"],
-	correctAnswer: 1
+	correctAnswer: 1,
+	image: "assets/images/thirteen.png"
 }, {
 	question: "Who was the coach in the only season Kansas went undefeated in Big 12 play?",
 	choices: ["Larry Brown", "Ted Owens", "Bill Self", "Roy Williams"],
-	correctAnswer: 3
+	correctAnswer: 3,
+	image: "assets/images/williams.png"
 }, {
 	question: "Who did the Jayhawks defeat to claim their 2,000th victory in program history?",
 	choices: ["Texas Tech", "Texas", "Texas A&M", "TCU"],
-	correctAnswer: 0
+	correctAnswer: 0,
+	image: "assets/images/2000-wins.png"
 }];
-
-var images = [
-			  ,
-			  ,
-			  "assets/images/wilt.png",
-			  "assets/images/2008-champ.png",
-			  "assets/images/jojo-white.png",
-			  "assets/images/trob.png",
-			  "assets/images/thirteen.png",
-			  "assets/images/williams.png",
-			  "assets/images/2000-wins.png"];
 
 var StartGame = $('<button type="button" class="btn btn-primary btn-lg start-game">Start Game</button>')
 
@@ -73,6 +68,7 @@ $(".game").append(StartGame);
 function displayQuestion (index) {
 	clearTimeout(timer);
 	$(".game").empty();
+	// if()
 	var questionHeader = $('<h2 class="questonTitle">'+ questions[index].question +'</h2>');
 	$(".game").append(questionHeader);
 	for (var i = 0; i < questions[index].choices.length; i++) {
@@ -89,21 +85,27 @@ function displayQuestion (index) {
 	var timeoutElement = $("<div id='timeoutElement'>You have 20 seconds remaining</div>");
 	secondsRemaining = 20;
 	$(".game").append(timeoutElement);
-	timerUpdate = setTimeout(function() {getTimeLeft(); }, 1000);
+	timerUpdate = setInterval(function() {getTimeLeft(); }, 1000);
 
 }
 
 function displayAnswer (index,button) {
 	clearTimeout(timer);
-	clearTimeout(timerUpdate);
+	clearInterval(timerUpdate);
 	$(".game").empty();
 	var answerHeader = $('<h1></h1>');
 		//each answer has a if/else 
 		if ($(button).attr("id") === "choice" + questions[index].correctAnswer) {
 			answerHeader.html("Correct!");
+			correctAnswers++;
+		}
+		else if (button == null){
+			answerHeader.html("Out of Time!");
+			unansweredQuestions++;
 		}
 		else {
 			answerHeader.html("Incorrect!");
+			incorrectAnswers++;
 		}
 	$(".game").append(answerHeader);
 	var answerImage = $('<img src="'+ questions[index].image +'">'); 
@@ -122,8 +124,6 @@ $(document).on('click', ".choice" , function() {
 $(".start-game").click(function() {
 	//have one question come up at a time
 	displayQuestion(currentQuestion);
-	
-
 })
 
 
