@@ -57,7 +57,7 @@ var questions = [{
 	question: "Who did the Jayhawks defeat to claim their 2,000th victory in program history?",
 	choices: ["Texas Tech", "Texas", "Texas A&M", "TCU"],
 	correctAnswer: 0,
-	image: "assets/images/2000-wins.png"
+	image: "assets/images/2000-win.png"
 }];
 
 var StartGame = $('<button type="button" class="btn btn-primary btn-lg start-game">Start Game</button>')
@@ -108,7 +108,7 @@ function displayAnswer (index,button) {
 			incorrectAnswers++;
 		}
 	$(".game").append(answerHeader);
-	var answerImage = $('<img src="'+ questions[index].image +'">'); 
+	var answerImage = $('<img class="images" src="'+ questions[index].image +'">'); 
 	$(".game").append(answerImage);
 	currentQuestion = currentQuestion + 1;
 	timer = setTimeout(function(){ displayQuestion(currentQuestion); }, 5000);
