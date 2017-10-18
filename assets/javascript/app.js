@@ -12,7 +12,7 @@ var questions = [{
 	question: "What was the 1988 Championship team nicknamed?",
 	choices: ["Danny and Co.", "The Miracles", "Danny and the Miracles", "Manning's Miracles"],
 	correctAnswer: 2,
-	image: "assets/images/danny-miracles.png",
+	image: "assets/images/danny.png",
 	answer: "Danny and the Miracles"
 }, {
 	question: "What year did Allen Fieldhouse open?",
@@ -34,7 +34,7 @@ var questions = [{
 	answer: "Big Dipper"
 }, {
 	question: "What was the final score of the 2008 National Championship game?",
-	choices: ["70-65", "70-65 OT", "75-68", "75-68 OT"],
+	choices: ["71-65 OT", "70-65 OT", "75-67 OT", "75-68 OT"],
 	correctAnswer: 3,
 	image: "assets/images/2008-champ.png",
 	answer: "75-68 OT"
