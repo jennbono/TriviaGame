@@ -7,6 +7,10 @@ body {
 	background: url("../images/ku-background.png");
 }
 
+.logo {
+	margin-top: 10px;
+}
+
 .btn-color {
 	background-color: #006ab5;
 	font-family: 'Heebo', sans-serif;

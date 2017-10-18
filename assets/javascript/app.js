@@ -48,7 +48,7 @@ var questions = [{
 	question: "In the final Border War at Allen Fieldhouse, who blocked Phil Pressey's shot to send the game into overtime?",
 	choices: ["Thomas Robinson", "Jamari Taylor", "Kevin Young", "Jeff Withey"],
 	correctAnswer: 0,
-	image: "assets/images/trob.png",
+	image: "assets/images/trob-block.gif",
 	answer: "Thomas Robinson"
 }, {
 	question: "How many consecutive regular season Big 12 titles have the Jayhawks won, tying them with UCLA?",
@@ -67,7 +67,7 @@ var questions = [{
 	question: "Who did the Jayhawks defeat to claim their 2,000th victory in program history?",
 	choices: ["Texas Tech", "Texas", "Texas A&M", "TCU"],
 	correctAnswer: 0,
-	image: "assets/images/2000-win.png",
+	image: "assets/images/2k-shirts.png",
 	answer: "Texas Tech"
 }];
 
@@ -119,14 +119,16 @@ function displayAnswer (index,button) {
 			incorrectAnswers++;
 		}
 	$(".game").append(answerHeader);
+	//display answer
 	answerAnswer = $('<div id="answers">' + questions[index].answer + '</div>');
 	$(".game").append(answerAnswer);
+	//display picture
 	var answerImage = $('<img class="images" src="'+ questions[index].image +'">'); 
 	$(".game").append(answerImage);
+	//automatically go on to next question after 6 seconds is up
 	currentQuestion = currentQuestion + 1;
-	timer = setTimeout(function(){ displayQuestion(currentQuestion); }, 7000);
+	timer = setTimeout(function(){ displayQuestion(currentQuestion); }, 6000);
 }
-
 
 $(document).on('click', ".choice" , function() {
 	displayAnswer(currentQuestion,this);
@@ -139,18 +141,24 @@ $(".start-game").click(function() {
 	displayQuestion(currentQuestion);
 })
 
-
-
-
-
-
-
-//if timer === 0, correct answer will display for 5 seconds, then go to next question
-
-
-//display answer for 5 seconds
-//display picture for 5 seconds
-//automatically go on to next question after 5 seconds is up
-
 //at end of questions- total number of questions correct, incorrect and unanswered are displayed
+function displayEndOfGame() {
+	clearTimeout(timer);
+	clearInterval(timerUpdate);
+	// correctQuestions = $('<div id="Correctanswers">' + correctAnswers + '</div>');
+	// $("#correctQuestions").html("Correct Answers: " + correctAnswers);
+	// $(".game").append(correctAnswers);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 //create onclick event for start again button that goes to question 1
