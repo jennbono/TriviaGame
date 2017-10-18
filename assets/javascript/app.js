@@ -79,7 +79,12 @@ $(".game").append(StartGame);
 function displayQuestion (index) {
 	clearTimeout(timer);
 	$(".game").empty();
-	// if()
+	// if(currentQuestion > 9) {
+	// 	displayEndOfGame();
+	// }
+	// else {
+	// 	displayQuestion(currentQuestion);
+	// }
 	var questionHeader = $('<h2 class="questonTitle">'+ questions[index].question +'</h2>');
 	$(".game").append(questionHeader);
 	for (var i = 0; i < questions[index].choices.length; i++) {
@@ -125,9 +130,9 @@ function displayAnswer (index,button) {
 	//display picture
 	var answerImage = $('<img class="images" src="'+ questions[index].image +'">'); 
 	$(".game").append(answerImage);
-	//automatically go on to next question after 6 seconds is up
+	//automatically go on to next question after 5 seconds is up
 	currentQuestion = currentQuestion + 1;
-	timer = setTimeout(function(){ displayQuestion(currentQuestion); }, 6000);
+	timer = setTimeout(function(){ displayQuestion(currentQuestion); }, 5000);
 }
 
 $(document).on('click', ".choice" , function() {
@@ -145,9 +150,18 @@ $(".start-game").click(function() {
 function displayEndOfGame() {
 	clearTimeout(timer);
 	clearInterval(timerUpdate);
-	// correctQuestions = $('<div id="Correctanswers">' + correctAnswers + '</div>');
-	// $("#correctQuestions").html("Correct Answers: " + correctAnswers);
-	// $(".game").append(correctAnswers);
+	$(".game").empty();
+	// total number of questions correct
+	var correctQuestions = $('<div id="correctAnswers">' + correctAnswers + '</div>');
+		$(".correctQuestions").html("Correct Answers: " + correctAnswers);
+		$(".game").append(correctQuestions);
+	// total number of questions incorrect
+	incorrectQuestions = $('<div id="incorrectAnswers">' + incorrectAnswers + '</div>');
+		$(".incorrectQuestions").html("Incorrect Answers: " + incorrectAnswers);
+		$(".game").append(incorrectQuestions);
+	unansweredAnswers = $('<div id="unansweredQuestions">' + unansweredQuestions + '</div>');
+		$(".unansweredAnswers").html("Unanswered Questions: " + unansweredQuestions);
+		$(".game").append(unansweredAnswers);
 }
 
 
