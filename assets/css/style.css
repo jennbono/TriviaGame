@@ -74,3 +74,15 @@ h1 {
 	font-size: 35px;
 	color: #006ab5;
 }
+
+.start-again {
+	margin: 20px;
+	color: black;
+	background-color: transparent;
+	border-color: #e51937;
+}
+
+.start-again:hover {
+	background-color: #e51937;
+	border-color: #e51937;
+}

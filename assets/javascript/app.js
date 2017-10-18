@@ -99,7 +99,7 @@ function displayQuestion (index) {
 	var timeoutElement = $("<div id='timeoutElement'>You have 20 seconds remaining</div>");
 	secondsRemaining = 20;
 	$(".game").append(timeoutElement);
-	timerUpdate = setInterval(function() {getTimeLeft(); }, 1000);
+	timerUpdate = setInterval(function() {getTimeLeft(); }, 5000);
 
 }
 
@@ -167,7 +167,16 @@ function displayEndOfGame() {
 		.append('Unanswered Questions: ')
 		.append(unansweredQuestions);
 		$(".game").append(unansweredAnswers);
-	
+	//create onclick event for start again button that goes to question 1
+	startAgain = $('<button>')
+		.attr('type', 'button')
+		.addClass('btn btn-primary btn-lg start-again')
+		.append('Play Again')
+		.click(function() {
+			currentQuestion = 0;
+			displayQuestion(currentQuestion);
+		});
+		$(".game").append(startAgain);
 }
 
 
@@ -181,4 +190,3 @@ function displayEndOfGame() {
 
 
 
-//create onclick event for start again button that goes to question 1
