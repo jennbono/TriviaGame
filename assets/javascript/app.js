@@ -79,12 +79,10 @@ $(".game").append(StartGame);
 function displayQuestion (index) {
 	clearTimeout(timer);
 	$(".game").empty();
-	// if(currentQuestion > 9) {
-	// 	displayEndOfGame();
-	// }
-	// else {
-	// 	displayQuestion(currentQuestion);
-	// }
+	if(currentQuestion > 9) {
+		displayEndOfGame();
+		return;
+	}
 	var questionHeader = $('<h2 class="questonTitle">'+ questions[index].question +'</h2>');
 	$(".game").append(questionHeader);
 	for (var i = 0; i < questions[index].choices.length; i++) {
@@ -152,16 +150,24 @@ function displayEndOfGame() {
 	clearInterval(timerUpdate);
 	$(".game").empty();
 	// total number of questions correct
-	var correctQuestions = $('<div id="correctAnswers">' + correctAnswers + '</div>');
-		$(".correctQuestions").html("Correct Answers: " + correctAnswers);
+	var correctQuestions = $('<div>')
+		.attr('id', 'correctAnswers')
+		.append('Correct Answers: ')
+		.append(correctAnswers);
 		$(".game").append(correctQuestions);
 	// total number of questions incorrect
-	incorrectQuestions = $('<div id="incorrectAnswers">' + incorrectAnswers + '</div>');
-		$(".incorrectQuestions").html("Incorrect Answers: " + incorrectAnswers);
+	incorrectQuestions = $('<div>')
+		.attr('id', 'incorrectAnswers')
+		.append('Incorrect Answers: ')
+		.append(incorrectAnswers);
 		$(".game").append(incorrectQuestions);
-	unansweredAnswers = $('<div id="unansweredQuestions">' + unansweredQuestions + '</div>');
-		$(".unansweredAnswers").html("Unanswered Questions: " + unansweredQuestions);
+	// total number of unanswered questions
+	unansweredAnswers = $('<div>')
+		.attr('id', 'unansweredQuestions')
+		.append('Unanswered Questions: ')
+		.append(unansweredQuestions);
 		$(".game").append(unansweredAnswers);
+	
 }
 
 
