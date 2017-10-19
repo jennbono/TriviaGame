@@ -69,7 +69,7 @@ var questions = [{
 	image: "assets/images/2k-shirts.png",
 	answer: "Texas Tech"
 }, {
-	question: 'What former player or coach was known as the "Father of College Basketball"?',
+	question: 'What former player or coach was known as the &#8220;Father of College Basketball&#8221;?',
 	choices: ["Dean Smith", "James Naismith", "Phog Allen", "Adolph Rupp"],
 	correctAnswer: 2,
 	image: "assets/images/allen.png",
