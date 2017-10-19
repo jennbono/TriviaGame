@@ -178,15 +178,3 @@ function displayEndOfGame() {
 		});
 		$(".game").append(startAgain);
 }
-
-
-
-
-
-
-
-
-
-
-
-
