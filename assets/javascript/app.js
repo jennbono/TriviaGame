@@ -62,13 +62,42 @@ var questions = [{
 	correctAnswer: 3,
 	image: "assets/images/williams.png",
 	answer: "Roy Williams"
-
 }, {
 	question: "Who did the Jayhawks defeat to claim their 2,000th victory in program history?",
 	choices: ["Texas Tech", "Texas", "Texas A&M", "TCU"],
 	correctAnswer: 0,
 	image: "assets/images/2k-shirts.png",
 	answer: "Texas Tech"
+}, {
+	question: 'What former player or coach was known as the "Father of College Basketball"?',
+	choices: ["Dean Smith", "James Naismith", "Phog Allen", "Adolph Rupp"],
+	correctAnswer: 2,
+	image: "assets/images/allen.png",
+	answer: "Phog Allen"
+},{
+	question: "In what season did Kansas start out unranked and jumped to #1 in the polls after 19 consecutive wins?",
+	choices: ["1988-89", "1989-90", "1990-91", "1991-92"],
+	correctAnswer: 1,
+	image: "assets/images/1990.png",
+	answer: "1989-90"
+},{
+	question: "Who did the USA National Team defeat compiled mostly of Kansas players in the 2015 World University Games?",
+	choices: ["Germany", "Russia", "Canada", "France"],
+	correctAnswer: 0,
+	image: "assets/images/university-games.png",
+	answer: "Germany"
+},{
+	question: "How many times has Kansas hosted ESPN College Gameday?",
+	choices: ["4", "5", "6", "7"],
+	correctAnswer: 3,
+	image: "assets/images/espn.png",
+	answer: "7"
+},{
+	question: "What Jayhawk holds the freshman record for points in a season with 597 points?",
+	choices: ["Danny Manning", "Andrew Wiggins", "Ben McLemore", "Brandon Rush"],
+	correctAnswer: 1,
+	image: "assets/images/wiggins.gif",
+	answer: "Andrew Wiggins"
 }];
 
 var StartGame = $('<button type="button" class="btn btn-primary btn-lg start-game">Start Game</button>')
@@ -79,7 +108,7 @@ $(".game").append(StartGame);
 function displayQuestion (index) {
 	clearTimeout(timer);
 	$(".game").empty();
-	if(currentQuestion > 9) {
+	if(currentQuestion > 14) {
 		displayEndOfGame();
 		return;
 	}
