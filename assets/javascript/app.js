@@ -99,7 +99,7 @@ function displayQuestion (index) {
 	var timeoutElement = $("<div id='timeoutElement'>You have 20 seconds remaining</div>");
 	secondsRemaining = 20;
 	$(".game").append(timeoutElement);
-	timerUpdate = setInterval(function() {getTimeLeft(); }, 5000);
+	timerUpdate = setInterval(function() {getTimeLeft(); }, 1000);
 
 }
 
