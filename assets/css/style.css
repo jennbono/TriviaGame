@@ -80,9 +80,11 @@ h1 {
 	color: black;
 	background-color: transparent;
 	border-color: #e51937;
+	font-family: 'Heebo', sans-serif;
 }
 
 .start-again:hover {
 	background-color: #e51937;
 	border-color: #e51937;
+	font-family: 'Heebo', sans-serif;
 }
